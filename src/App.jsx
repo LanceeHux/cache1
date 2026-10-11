@@ -2,7 +2,7 @@ import { useState, useEffect }  from "react"
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { styles } from "./styles"
 
- function Landing() {
+export default function App() {
   const [ burger, setBurger ] = useState(false)
   const [time, setTime] = useState('');
 
@@ -40,6 +40,18 @@ import { styles } from "./styles"
   }, []);
   return (
     <>
+    <header className={styles.app.header}>
+      <h1 className={styles.app.h1}>Leeyam+</h1>
+
+        <div className={styles.app.div1}>
+          <a href="#landing" className={styles.app.navBtn}>Dashboard</a>
+          <a href="#socmed" className={styles.app.navBtn}>Social Media</a>
+          <a href="#developments" className={styles.app.navBtn}>Developments</a>
+        </div>
+
+        <button className={styles.app.cache3}>=</button>
+    </header>
+
     <main className={styles.app.main} id="landing">
       <div className={styles.app.circle}></div>
       <section className={styles.app.section}>
@@ -100,27 +112,5 @@ import { styles } from "./styles"
       </section>
     </main>
     </>
-  )
-}
-
-export default function App() {
-  return (
-    <BrowserRouter>
-    <header className={styles.app.header}>
-      <h1 className={styles.app.h1}>Leeyam+</h1>
-
-        <div className={styles.app.div1}>
-          <Link to="/" className={styles.app.navBtn}>Dashboard</Link>
-          <a href="#socmed" className={styles.app.navBtn}>Social Media</a>
-          <a href="#developments" className={styles.app.navBtn}>Developments</a>
-        </div>
-
-        <button className={styles.app.cache3}>=</button>
-    </header>
-
-    <Routes>
-      <Route path="/" element={<Landing/>} />
-    </Routes>
-    </BrowserRouter>
   )
 }
